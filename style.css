@@ -29,7 +29,7 @@ a {
   text-align: left;
 }
 
-a:hover {background-color: #f1f1f1;}
+/* a:hover {background-color: #f1f1f1;} */
 
 .dropdown:hover {
   display: block;
@@ -62,7 +62,7 @@ li:hover > a::after {
 }
 .menu {
   display: grid;
-  grid-template-columns: 25% 85%;
+  grid-template-columns: 25% 75%;
   padding-top: 0.5em;
   background-color: #f1f1f1;
   /* position: fixed; */

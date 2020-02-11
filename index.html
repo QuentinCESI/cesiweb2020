@@ -10,15 +10,21 @@
   </head>
   <body class="wrapper">
     <header class="header" id="header">
-      <nav class="menu">
+      <nav role="navigation" class="menu">
         <div id="logo" class="menuelement1"> <img class="logo" src="./images/logo.png" alt="Madera corporate"></div>
-        <div class="submenu">
-          <ul class="menuelement2">
-            <li><a href="./index.html">Accueil</a></li>
-            <li><a href="#presentation">Présentation</a></li>
-            <li><a href="#products">Nos réalisations</a></li>
-            <li><a href="news.asp">Actualité</a></li>
-            <li><a href="contact.asp">Contact</a></li>
+        <div id="menuToggle" class="menuelement2">
+
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+
+          <ul id="" class="burgerMenu">
+            <a href="./index.html"><li>Accueil</li></a>
+            <a href="#presentation"><li>Présentation</li></a>
+            <a href="#products"><li>Nos réalisations</li></a>
+            <a href="#"><li>Actualité</li></a>
+            <a href="#"><li>Contact</li></a>
           </ul>
         </div>
       </nav>
@@ -115,6 +121,31 @@
             </div>
           </section>
         </div>
+      </article>
+      <article class="content" id="contact">
+        <h1 class="article_title"> Contact</h1>
+        <p class="article_dot">....................................</p>
+        <form action="/action_page.php">
+          <div class="row">
+            <div class="col-25">
+              <label for="email">Adresse mail : </label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="email" name="email" placeholder="contact@gmail.com">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="subject">Message : </label>
+            </div>
+            <div class="col-75">
+              <textarea id="subject" name="subject" placeholder="Écrivez votre message.." style="height:15vh"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <input type="submit" value="Envoyer">
+          </div>
+        </form>
       </article>
     </section>
 		<footer class="footer">My footer</footer>

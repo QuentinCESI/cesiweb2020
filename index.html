@@ -4,40 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="index, nofollow">
     <link href="./images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Madera</title>
   </head>
   <body class="wrapper">
     <header class="header" id="header">
-      <nav role="navigation" class="menu">
-        <div id="logo" class="menuelement1"> <img class="logo" src="./images/logo.png" alt="Madera corporate"></div>
-        <div id="menuToggle" class="menuelement2">
-
-          <input type="checkbox" />
-          <span></span>
-          <span></span>
-          <span></span>
-
-          <ul id="" class="burgerMenu">
-            <a href="./index.html"><li>Accueil</li></a>
-            <a href="#presentation"><li>Présentation</li></a>
-            <a href="#products"><li>Nos réalisations</li></a>
-            <a href="#"><li>Actualité</li></a>
-            <a href="#"><li>Contact</li></a>
-          </ul>
-        </div>
-      </nav>
+      <div class="menu">
+        <span class="title">Madera</span>
+        <input class="burger" type="checkbox">
+        <nav>
+          <input type="search" class="search" placeholder="Rechercher...">
+          <a href="./index.html"><i class="material-icons">home</i>Accueil</a>
+          <a href="#presentation"><i class="material-icons">directions_car</i>Présentation</a>
+          <a href="#products"><i class="material-icons">drafts</i>Nos réalisations</a>
+          <a href="#"><i class="material-icons">import_contacts</i>Actualité</a>
+          <a href="#"><i class="material-icons">face</i>Contact</a>
+          <a href="./admin.html"><i class="material-icons">face</i>Admin</a>
+        </nav>
+      </div>
     </header>
     <aside class="sidebar"></aside>
 	  <aside class="sidebar2">
       <div style="padding-top: 69vh;">
         <a href="#header" class="arrow" >
-          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-circle-up" class="svg-inline--fa fa-arrow-circle-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"></path></svg>
+          <i class="material-icons" style="font-size: 13vh;">arrow_upward</i>        
         </a> 
       </div>
     </aside>
-    <section class="content">
+    <section id="app" class="content">
       <article class="diapo">
         <img class="max-width: 90%" src="./images/MG_5809.jpg" alt="Madera Home">
       </article>
@@ -58,65 +56,13 @@
         <h1 class="article_title"> Nos réalisations</h1>
         <p class="article_dot">....................................</p>
         <div class="grid-container">
-          <section id="3685" class="location-listing">
+          <section v-for="item in realisations" :key="item.title" class="location-listing">
             <a class="location-title" href="#">
-              <h2 class="location-title_title" >Construction d'un bâtiment à usage de bureaux - CHALLANS (85) </h2>                      
+              <h2 class="location-title_title" >{{item.title}}</h2>                      
             </a>
             <div class="location-image">
               <a href="#">
-                <img width="300" height="169" src="./images/1.jpg" alt="Construction d'un bâtiment à usage de bureaux - CHALLANS (85)">      
-              </a>
-            </div>
-          </section>
-      
-          <section id="3688" class="location-listing">
-            <a class="location-title" href="#">
-              <h2 class="location-title_title" >Création d'un espace de vente pour le promoteur immobilier ADI - SAINT NAZAIRE (44)</h2>                     
-            </a>
-            <div class="location-image">
-              <a href="#">
-                <img width="300" height="169" src="./images/Bureau-Tertiaire-ADI-MADERA_PICT3634.JPG" alt="Création d'un espace de vente pour le promoteur immobilier ADI - SAINT NAZAIRE (44)">    
-              </a>
-            </div>
-          </section>
-      
-          <section id="3691" class="location-listing">
-            <a class="location-title" href="#">
-              <h2 class="location-title_title" >Création d'un espace de vente pour le promoteur immobilier SARA - ANGERS (49)</h2>                    
-            </a>
-            <div class="location-image">
-              <a href="#">
-                <img width="300" height="169" src="./images/Construction-Bureaux-SARA-MADERA_DSC00040.JPG" alt="Création d'un espace de vente pour le promoteur immobilier SARA - ANGERS (49)">    
-              </a>
-            </div>
-          </section>
-          <section id="3694" class="location-listing">
-            <a class="location-title" href="#">
-              <h2 class="location-title_title" >Construction d'un bureau pour LES JARDINS DU MOULIN à TILLIERES (49)</h2>                      
-            </a>
-            <div class="location-image">
-              <a href="#">
-                <img width="300" height="169" src="./images/Construction-BureauxJARDINSDUMOULIN-MADERA_2014_073.jpg" alt="Construction d'un bureau pour LES JARDINS DU MOULIN à TILLIERES (49)">  
-              </a>
-            </div>
-          </section>
-          <section id="3697" class="location-listing">
-            <a class="location-title" href="#">
-              <h2 class="location-title_title" >Création d'un local accueil et d'un bâtiment sanitaire au camping de Bourgenay - TALMONT ST HILAIRE (85)</h2>              
-            </a>
-            <div class="location-image">
-              <a href="#">
-                <img width="300" height="169" src="./images/Construction-Camping-Sanitaires-SalleMultiusage-TALMONT-MADERA_06-2014_001.jpg" alt="Création d'un local accueil et d'un bâtiment sanitaire au camping de Bourgenay - TALMONT ST HILAIRE (85) ">
-              </a>
-            </div>
-          </section>
-          <section id="3700" class="location-listing">
-            <a class="location-title" href="#">
-              <h2 class="location-title_title" >Extension du restaurant d'entreprise ARMOR - LA CHEVROLIERE (44) </h2>                           
-            </a>
-            <div class="location-image">
-              <a href="#">
-                <img width="300" height="169" src="./images/armor-chevroliere-restaurant3.jpg" alt="Extension du restaurant d'entreprise ARMOR - LA CHEVROLIERE (44) ">                  
+                <img width="300" height="169" :src="item.image" alt="item.image">      
               </a>
             </div>
           </section>
@@ -143,10 +89,26 @@
             </div>
           </div>
           <div class="row">
-            <input type="submit" value="Envoyer">
+            <input type="submit"  @click="go()" value="Envoyer">
           </div>
         </form>
       </article>
     </section>
 		<footer class="footer">My footer</footer>
 </html>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      realisations: null
+    },
+    mounted() {
+      this.realisations = JSON.parse(localStorage.getItem("realisations"))
+    },
+    methods: {
+      go () {
+        localStorage.setItem("realisations", JSON.stringify(this.realisations))
+      }
+    }
+  });
+  </script>

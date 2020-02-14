@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="index, nofollow">
+    <link href="./images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>adminPanel</title>
+  </head>
+</head>
+<body class="wrapper">
+  <header class="header" id="header">
+    <div class="menu">
+      <span class="title">ADMIN PANEL</span>
+      <input class="burger" type="checkbox">
+      <nav style="z-index: 6;position: fixed;">
+        <input type="search" class="search" placeholder="Rechercher...">
+        <a href="./index.html"><i class="material-icons">home</i>Accueil</a>
+        <a href="#presentation"><i class="material-icons">directions_car</i>Présentation</a>
+        <a href="#products"><i class="material-icons">drafts</i>Nos réalisations</a>
+        <a href="#"><i class="material-icons">import_contacts</i>Actualité</a>
+        <a href="#"><i class="material-icons">face</i>Contact</a>
+        <a href="./admin.html"><i class="material-icons">face</i>Admin</a>
+      </nav>
+    </div>
+  </header>
+  <aside class="sidebar">
+  </aside>
+  <aside class="sidebar2">
+  </aside>
+  <section id="app" class="content">
+    <div class="grid-container">
+      <section v-for="item in realisations" :key="item.title" class="location-listing box">
+        <div>{{item.title}}</div>
+        
+        <a style="background: none;cursor: pointer;"><i  @click="del(item.title)" style="color: black;" class="material-icons" >delete</i></a>
+      </section>
+    </div>
+    <form action="">
+      <label for="text"> Titre</label>
+      <input v-model="title" type="text" id="text">
+      <label for="file"> Image</label>
+      <input type="file" id="image" @change="convertImage($event)"accept=".png">
+    </form>
+    <input type="button"  @click="add()" value="Ajouter">
+    <input type="button"  @click="init()" value="Initialiser les réalisations ">
+  </section>
+</body>
+</html>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      save: [
+        {
+          "title": "Construction d'un bâtiment à usage de bureaux - CHALLANS (85)",
+          "image": "./images/1.jpg"
+        },
+        {
+          "title": "Création d'un espace de vente pour le promoteur immobilier ADI - SAINT NAZAIRE (44)",
+          "image": "./images/Bureau-Tertiaire-ADI-MADERA_PICT3634.JPG"
+        },
+        {
+          "title": "Création d'un espace de vente pour le promoteur immobilier SARA - ANGERS (49)",
+          "image": "./images/Construction-Bureaux-SARA-MADERA_DSC00040.JPG"
+        },
+        {
+          "title": "Construction d'un bureau pour LES JARDINS DU MOULIN à TILLIERES (49)",
+          "image": "./images/Construction-BureauxJARDINSDUMOULIN-MADERA_2014_073.jpg"
+        },
+        {
+          "title": "Création d'un local accueil et d'un bâtiment sanitaire au camping de Bourgenay - TALMONT ST HILAIRE (85)",
+          "image": "./images/Construction-Camping-Sanitaires-SalleMultiusage-TALMONT-MADERA_06-2014_001.jpg"
+        },
+        {
+          "title": "Extension du restaurant d'entreprise ARMOR - LA CHEVROLIERE (44) ",
+          "image": "./images/armor-chevroliere-restaurant3.jpg"
+        }
+      ],
+      realisations: null,
+      image: null,
+      title: null
+    },
+    mounted() {
+      this.realisations = JSON.parse(localStorage.getItem("realisations"))
+    },
+    methods: {
+      init () {
+        localStorage.setItem("realisations", JSON.stringify(this.save))
+      },
+      add () {
+        this.realisations.push({title: this.title, image: this.image})
+        localStorage.setItem("realisations", JSON.stringify(this.realisations))
+      },
+      del (title) {
+        var index = this.realisations.findIndex((element) => element.title === title)
+        console.log(index)
+        this.realisations.splice(index, 1);
+        localStorage.setItem("realisations", JSON.stringify(this.realisations))
+      },
+      convertImage (event) {
+        const reader = new FileReader();
+        var vm = this
+          reader.addEventListener("load", function () {
+            vm.image =reader.result
+          }, false);
+          reader.readAsDataURL(event.target.files[0]);
+      }
+    }
+  });
+  </script>

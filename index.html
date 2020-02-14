@@ -63,7 +63,7 @@
             </a>
             <div class="location-image">
               <a href="#">
-                <img width="300" height="169" :src="item.image" alt="item.image">      
+                <img width="300" height="169" :src="item.image" :alt="item.title">      
               </a>
             </div>
           </section>
@@ -95,21 +95,50 @@
         </form>
       </article>
     </section>
-		<footer class="footer">My footer</footer>
+		<footer class="footer">
+      <div class="footer-container">
+        <section class="location-listing">
+          <div class="footer-box">
+            <a style="background: none;" href="./index.html"><i class="material-icons">home</i>Accueil</a>
+            <br>
+            <a style="background: none;" href="#presentation"><i class="material-icons">directions_car</i>Présentation</a>
+          </div>
+        </section>
+        <section class="location-listing">
+          <div class="footer-box">
+            <a style="background: none;" href="#products"><i class="material-icons">drafts</i>Nos réalisations</a>
+            <br>
+            <a style="background: none;" href="#"><i class="material-icons">import_contacts</i>Actualité</a>
+          </div>
+        </section>
+        <section class="location-listing">
+          <div class="footer-box">
+            <a style="background: none;" href="#"><i class="material-icons">import_contacts</i>Actualité</a>
+            <br>
+            <a style="background: none;" href="#"><i class="material-icons">face</i>Contact</a>
+          </div>
+        </section>
+      </div>
+      <div style="text-align: center;color: white;">
+        <br>
+        Agence Web, Nantes, Vannes, Lorient, Paris | 2010 / 2020 © Tous droits réservés
+      </div>
+    </footer>
+    <script>
+      var app = new Vue({
+        el: '#app',
+        data: {
+          realisations: null
+        },
+        mounted() {
+          this.realisations = JSON.parse(localStorage.getItem("realisations"))
+        },
+        methods: {
+          go () {
+            localStorage.setItem("realisations", JSON.stringify(this.realisations))
+          }
+        }
+      });
+      </script> 
+  </body>  
 </html>
-<script>
-  var app = new Vue({
-    el: '#app',
-    data: {
-      realisations: null
-    },
-    mounted() {
-      this.realisations = JSON.parse(localStorage.getItem("realisations"))
-    },
-    methods: {
-      go () {
-        localStorage.setItem("realisations", JSON.stringify(this.realisations))
-      }
-    }
-  });
-  </script>
